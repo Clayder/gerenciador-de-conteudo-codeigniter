@@ -1,0 +1,106 @@
+.teste{
+    background-color: #00ff00;
+}
+
+
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #21537E;
+}
+
+li.dropdown>a>i, li.dropdown>a>b{
+	color: #FFF;
+}
+
+.top-nav>li>a {
+    color: #FFF;
+}
+
+.top-nav>li>a:hover, .top-nav>li>a:focus, .top-nav>.open>a, .top-nav>.open>a:hover, .top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+/* cor da logo */
+.navbar-inverse .navbar-brand {
+    color: #FFF;
+}
+
+/* Tabs hover */
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: #21537E;
+    color: #FFF;
+}
+
+.nav-tabs>li>a {
+    color: #333333;
+    font-size: 18px;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #337ab7;
+}
+
+div.afastamento{
+	margin: 10px 0;
+}
+
+table.dataTable.display tbody td {
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+form.formulario-modal{
+	padding: 30px;
+	background-color: #fff;
+}
+
+div.titulo-principal>h3{
+	margin-left: 12px;
+	color: #FFF;
+}
+
+div.modal-fundo{
+	background-color: #337ab7;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #FFF;
+}
+
+/*muda a cor do menu, na parte dropdaw */
+.side-nav li a:hover, .side-nav li a:focus {
+    color: #FFF;
+}
+
+div.limite-tabela{
+    overflow: auto;
+}
+
+
+tr>th ,table>tbody{
+    text-align: center;
+}
+table>thead, table>tfoot{
+    background-color: #333333;
+    color: #fff;
+}
+
+.table>thead>tr>th {
+    border-bottom: 0px solid #333333;
+}
+
+.button-topo{
+   float: right; 
+}
+
+div.pagina{
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+div.bloco-pagina{
+    background-color: #FFF;
+}
+
