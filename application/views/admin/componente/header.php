@@ -20,6 +20,7 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/admin/fancybox/fancybox/jquery.fancybox.css');?>" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -168,37 +169,23 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-shopping-cart"></i> Vendas</a>
+                        <a href="#"><i class="fa fa-picture-o"></i> Galeria</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-truck"></i> Compras</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#drop-rh"><i class="fa fa-fw fa-university"></i> RH<i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#drop-rh"><i class="fa fa-sticky-note"></i> Posts<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="drop-rh" class="collapse">
                             <li>
-                                <a href="#">Funcionários</a>
+                                <a href="#">Todos os posts</a>
                             </li>
                             <li>
-                                <a href="#">Departamentos</a>
+                                <a href="#">Adicionar novo</a>
                             </li>
                             <li>
-                                <a href="#">Folha de pagamento</a>
-                            </li>
-                            <li>
-                                <a href="#">Relatório</a>
+                                <a href="#">Categorias</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-users"></i> Clientes</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-cubes"></i> Produtos</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Relatórios</a>
-                    </li>
+                    
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#drop-config"><i class="fa fa-fw fa-cog"></i> Configurações<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="drop-config" class="collapse">

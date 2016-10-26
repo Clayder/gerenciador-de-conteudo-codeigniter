@@ -8,6 +8,8 @@
     <script src="<?php echo base_url('assets/admin/js/funcoes.js');?>"></script>	
     <script src="<?php echo base_url('assets/admin/tinymce/tinymce/tinymce.min.js');?>"></script>	
     <script src="<?php echo base_url('assets/admin/tinymce/tinymce.init.js');?>"></script>	
+    <script src="<?php echo base_url('assets/admin/fancybox/fancybox/jquery.fancybox.pack.js');?>"></script>	
+    <script src="<?php echo base_url('assets/admin/fancybox/fancybox.init.js');?>"></script>	
     
 </body>
 

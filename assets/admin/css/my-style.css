@@ -104,3 +104,13 @@ div.bloco-pagina{
     background-color: #FFF;
 }
 
+/* Define o tamanho do pop-up, do fancy */
+.fancybox-inner{
+    min-height: 500px; !important;
+}
+
+div.conteudo{
+    min-height: 800px;
+}
+
+

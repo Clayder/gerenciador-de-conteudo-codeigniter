@@ -1,18 +1,18 @@
-<div id="page-wrapper">
+<div id="page-wrapper" class="conteudo">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
                     <i class="fa fa-file-text-o" aria-hidden="true"></i> Adicionar nova página
-                    <a href="<?php echo base_url_admin('pagina'); ?>" class="btn btn-primary btn-lg button-topo">
+                    <a href="<?php echo base_url_admin('pagina'); ?>" class="btn btn-primary button-topo">
                         <i class="fa fa-files-o" aria-hidden="true"></i>
                         Páginas
                     </a>
                 </h1>
             </div>
         </div>
-        <div class="row pagina">
-            <form action="<?php echo base_url_admin('pagina/cadastro'); ?>" method="POST" class="form-horizontal">
+        <form action="<?php echo base_url_admin('pagina/cadastro'); ?>" method="POST" class="form-horizontal">
+            <div class="row pagina">
                 <div class="col-lg-8">
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -22,8 +22,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <textarea class="editor-texto" name="texto1">
-    Texto de Exemplo<br/>
-    Tudo supimpa por aqui?
+   
                             </textarea>
                         </div>
                     </div> 
@@ -31,7 +30,12 @@
                 <div class="col-lg-4">
                     <div class="row">
                         <div class="col-lg-12 bloco-pagina">
-                            <h2> Atributos da página </h2>
+                            <h2> 
+                                Publicar
+                                <button class="btn btn-success btn-lg">
+                                    <i class="fa fa-floppy-o"  aria-hidden="true"></i> Salvar
+                                </button>
+                            </h2>
                             <hr>
                             <div class="form-group">
                                 <label for="inputEmail3" class="col-sm-5 control-label">
@@ -40,18 +44,19 @@
                                 </label>
                                 <div class="col-sm-7">
                                     <select name="status" class="form-control">
-                                        <option></option>
+                                        <option selected="">Publicado</option>
+                                        <option>Rascunho</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-5 control-label">
+                                <label for="inputEmail3" class="col-sm-6 control-label">
                                     <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                                    Layout:
+                                    Layout da página:
                                 </label>
-                                <div class="col-sm-7">
+                                <div class="col-sm-6">
                                     <select name="layout" class="form-control">
-                                        <option></option>
+                                        <option selected="">Padrão</option>
                                     </select>
                                 </div>
                             </div>
@@ -62,7 +67,8 @@
                                 </label>
                                 <div class="col-sm-7">
                                     <select name="status" class="form-control">
-                                        <option></option>
+                                        <option selected="">Público</option>
+                                        <option>Privado</option>
                                     </select>
                                 </div>
                             </div>
@@ -70,11 +76,23 @@
                         <div class="col-lg-12 bloco-pagina afastamento">
                             <h2> Imagem destacada </h2>
                             <hr>
+                            <div class="row" style="padding: 10px;">
+                                <a href="<?php echo base_url("assets/admin/tinymce/filemanager/dialog.php?type=1&field_id=nome_img"); ?>" data-fancybox-type="iframe" class="btn btn-info fancy"> 
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i> Inserir Imagem 
+                                </a>
+                                <a class="btn btn-danger" onclick="clear_img()" style="float: right;"> 
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                    Remover Imagem 
+                                </a>
+                                <img src="" alt="" title="" id="prev_img" class="img-responsive" style="margin-top: 10px;"/>
+                                <input type="hidden" value="" id="nome_img" class="form-control" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+            
+        </form>
     </div>
 </div>
 <!-- /#page-wrapper -->
