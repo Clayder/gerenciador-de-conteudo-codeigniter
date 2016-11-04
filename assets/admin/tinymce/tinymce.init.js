@@ -1,5 +1,3 @@
-var base_url = "http://localhost/www/peterdev/sige-ci/";
-console.log(base_url);
 tinymce.init({
   selector: '.editor-texto',
   height: 500,

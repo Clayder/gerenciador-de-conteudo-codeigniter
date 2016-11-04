@@ -2,8 +2,6 @@
     background-color: #00ff00;
 }
 
-
-
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     color: #fff;
     background-color: #21537E;
@@ -95,12 +93,12 @@ table>thead, table>tfoot{
    float: right; 
 }
 
-div.pagina{
+div.bloco{
     background-color: #f1f1f1;
     padding: 10px;
 }
 
-div.bloco-pagina{
+div.bloco-conteudo{
     background-color: #FFF;
 }
 
@@ -111,6 +109,10 @@ div.bloco-pagina{
 
 div.conteudo{
     min-height: 800px;
+}
+
+div.my-form-group{
+    padding: 0 10px;
 }
 
 

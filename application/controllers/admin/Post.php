@@ -2,24 +2,24 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pagina extends MY_Controller
+class Post extends MY_Controller
 {
 
     function __construct()
     {
         parent::__construct();
-        $this->pastaPagina = "pagina";
+        $this->pastaPagina = "post";
     }
 
     public function index()
     {
-        $this->pagina = "pagina-listar";
+        $this->pagina = "post-listar";
         $this->exibirPagina();
     }
 
     public function cadastrar()
     {
-        $this->pagina = "pagina-form";
+        $this->pagina = "post-form";
         $this->exibirPagina();
     }
     
@@ -30,6 +30,11 @@ class Pagina extends MY_Controller
     
     public function categoria(){
         $this->pagina = "categoria-editar";
+        $this->exibirPagina();
+    }
+    
+    public function editar(){
+        $this->pagina = "post-form";
         $this->exibirPagina();
     }
 

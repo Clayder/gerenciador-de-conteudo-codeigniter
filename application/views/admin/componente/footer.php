@@ -1,6 +1,8 @@
 </div>
     <!-- /#wrapper -->
-
+    <script>
+        var base_url = "<?php echo base_url(); ?>";
+    </script>
     <!-- jQuery -->
     <script src="<?php echo base_url('assets/js/jquery.js');?>"></script>
     <!-- Bootstrap Core JavaScript -->

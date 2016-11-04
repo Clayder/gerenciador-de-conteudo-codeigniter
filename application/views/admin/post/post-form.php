@@ -3,15 +3,15 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Adicionar nova página
-                    <a href="<?php echo base_url_admin('pagina'); ?>" class="btn btn-primary button-topo">
-                        <i class="fa fa-files-o" aria-hidden="true"></i>
-                        Páginas
+                    <i class="fa fa-newspaper-o" aria-hidden="true"></i> Adicionar novo post
+                    <a href="<?php echo base_url_admin('post'); ?>" class="btn btn-primary button-topo">
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                        Posts
                     </a>
                 </h1>
             </div>
         </div>
-        <form action="<?php echo base_url_admin('pagina/cadastro'); ?>" method="POST" class="form-horizontal">
+        <form action="<?php echo base_url_admin('post/cadastro'); ?>" method="POST" class="form-horizontal">
             <div class="row bloco">
                 <div class="col-lg-8">
                     <div class="form-group">
