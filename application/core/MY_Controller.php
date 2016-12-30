@@ -20,17 +20,17 @@ class MY_Controller extends CI_Controller
 
     public function init()
     {
-        $this->header = array();
+        $this->header = array('titulo'=> '');
         $this->sidebar = array();
         $this->conteudo = array();
-        $this->footer = array();
+        $this->footer['script'] = array();
     }
 
     protected function exibirPagina()
     {
-        $this->load->view('admin/componente/header', $this->header);
-        $this->load->view('admin/componente/sidebar', $this->sidebar);
-        $this->load->view('admin/' . $this->pastaPagina . '/' . $this->pagina, $this->conteudo);
+        $this->parser->parse('admin/componente/header', $this->header);
+        $this->parser->parse('admin/componente/sidebar', $this->sidebar);
+        $this->parser->parse('admin/' . $this->pastaPagina . '/' . $this->pagina, $this->conteudo);
         $this->load->view('admin/componente/footer', $this->footer);
     }
 

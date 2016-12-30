@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="notesApp">
 
 <head>
 
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SIGE</title>
+    <title>{titulo}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css');?>" rel="stylesheet">
@@ -151,4 +151,5 @@
                     </ul>
                 </li>
             </ul>
+            
             

@@ -8,7 +8,7 @@
 }
 
 li.dropdown>a>i, li.dropdown>a>b{
-	color: #FFF;
+    color: #FFF;
 }
 
 .top-nav>li>a {
@@ -41,7 +41,7 @@ li.dropdown>a>i, li.dropdown>a>b{
 }
 
 div.afastamento{
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
 table.dataTable.display tbody td {
@@ -50,17 +50,17 @@ table.dataTable.display tbody td {
 }
 
 form.formulario-modal{
-	padding: 30px;
-	background-color: #fff;
+    padding: 30px;
+    background-color: #fff;
 }
 
 div.titulo-principal>h3{
-	margin-left: 12px;
-	color: #FFF;
+    margin-left: 12px;
+    color: #FFF;
 }
 
 div.modal-fundo{
-	background-color: #337ab7;
+    background-color: #337ab7;
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -90,7 +90,7 @@ table>thead, table>tfoot{
 }
 
 .button-topo{
-   float: right; 
+    float: right; 
 }
 
 div.bloco{
@@ -100,6 +100,7 @@ div.bloco{
 
 div.bloco-conteudo{
     background-color: #FFF;
+    padding: 20px;
 }
 
 /* Define o tamanho do pop-up, do fancy */
@@ -115,4 +116,16 @@ div.my-form-group{
     padding: 0 10px;
 }
 
+div.bloco-left{
+    padding: 0 20px;
+}
 
+
+.iconInput { position: relative }
+.iconInput input { 
+    padding-left: 32px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+.iconInput i { position: absolute; padding: 14px 10px }

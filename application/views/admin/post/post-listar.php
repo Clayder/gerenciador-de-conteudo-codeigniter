@@ -18,6 +18,7 @@
                         <tr>
                             <th>Título</th>
                             <th>Status</th>
+                            <th>Comentários</th>
                             <th>Data</th>
                             <th>Editar</th>
                             <th>Excluir</th>
@@ -27,6 +28,7 @@
                         <tr>
                             <th>Título</th>
                             <th>Status</th>
+                            <th>Comentários</th>
                             <th>Data</th>
                             <th>Editar</th>
                             <th>Excluir</th>
@@ -39,6 +41,7 @@
                                 Post 1
                             </td>
                             <td>Publicado </td>
+                            <td><i class="fa fa-comment"></i></td>
                             <td>11/10/2016</td>
                             <td>
                                 <a href="<?php echo base_url_admin('post/editar/post-1'); ?>" class="btn btn-info btn-lg">
@@ -60,6 +63,10 @@
                                 Quem somos
                             </td>
                             <td>Publicado </td>
+                            <td>
+                                4
+                                <i class="fa fa-comment"></i>
+                            </td>
                             <td>11/10/2016</td>
                             <td>
                                 <a href="<?php echo base_url_admin('post/editar/post-1'); ?>" class="btn btn-info btn-lg">
@@ -81,6 +88,7 @@
                                 Quem somos
                             </td>
                             <td>Publicado </td>
+                            <td><i class="fa fa-comment"></i></td>
                             <td>11/10/2016</td>
                             <td>
                                 <a href="<?php echo base_url_admin('post/editar/post-1'); ?>" class="btn btn-info btn-lg">
@@ -102,6 +110,7 @@
                                 Quem somos
                             </td>
                             <td>Publicado </td>
+                            <td><i class="fa fa-comment"></i></td>
                             <td>11/10/2016</td>
                             <td>
                                 <a href="<?php echo base_url_admin('post/editar/post-1'); ?>" class="btn btn-info btn-lg">

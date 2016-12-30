@@ -1,10 +1,10 @@
 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-<div class="collapse navbar-collapse" role="navigation">
+<div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
-        <li>
-            <a href="#"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a>
-        </li>
         <li class="active">
+            <a href="<?php echo base_url_admin('home'); ?>"><i class="fa fa-tachometer" aria-hidden="true"></i> Painel</a>
+        </li>
+        <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#drop-paginas"><i class="fa fa-files-o" aria-hidden="true"></i> Páginas <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="drop-paginas" class="collapse">
                 <li>
@@ -35,19 +35,34 @@
                 </li>
             </ul>
         </li>
-
+        <li>
+            <a href="<?php echo base_url_admin('comentario'); ?>"><i class="fa fa-comments"></i> Comentários</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#drop-users"><i class="fa fa-fw fa-users"></i> Usuários<i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="drop-users" class="collapse">
+                <li>
+                    <a href="<?php echo base_url_admin('usuario'); ?>">Todos os usuários</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url_admin('usuario/cadastrar'); ?>">Adicionar novo</a>
+                </li>
+                <li>
+                    <a href="<?php echo base_url_admin('usuario/perfil'); ?>">Seu perfil</a>
+                </li>
+            </ul>
+        </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#drop-config"><i class="fa fa-fw fa-cog"></i> Configurações<i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="drop-config" class="collapse">
-                <li>
-                    <a href="#">Usuários</a>
-                </li>
-                <li>
-                    <a href="#">Grupos</a>
-                </li>
+
             </ul>
         </li>
     </ul>
 </div>
 <!-- /.navbar-collapse -->
 </nav>
+
+
+
+

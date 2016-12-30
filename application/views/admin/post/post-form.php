@@ -13,12 +13,13 @@
         </div>
         <form action="<?php echo base_url_admin('post/cadastro'); ?>" method="POST" class="form-horizontal">
             <div class="row bloco">
-                <div class="col-lg-8">
+                <div class="col-lg-8 bloco-left">
                     <div class="form-group">
                         <div class="col-sm-12">
                             <input type="text" name="titulo" value="" class="form-control input-lg" placeholder="Digite o título aqui">
                         </div>
                     </div> 
+
                     <div class="form-group">
                         <div class="col-sm-12">
                             <textarea class="editor-texto" name="texto1">
@@ -26,6 +27,24 @@
                             </textarea>
                         </div>
                     </div> 
+                    <div class="form-group bloco-conteudo">
+                        <label for="inputEmail3" class="control-label">
+                            Resumo:
+                        </label>
+                        <span id="helpBlock" class="help-block">
+                            Resumos são pequenas descrições opcionais do conteúdo da sua página feitas manualmente.
+                        </span>
+                        <textarea class="form-control" rows="3" name="resumo"></textarea>
+                    </div>
+                    <div class="form-group bloco-conteudo">
+                        <label for="inputEmail3" class="control-label">
+                            Slug:
+                        </label>
+                        <span id="helpBlock" class="help-block">
+                            O “slug” é uma versão amigável do URL. Normalmente, é todo em minúsculas e contém apenas letras, números e hífens.
+                        </span>
+                        <input type="text" name="agendamento" class="form-control"/>
+                    </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="row">
@@ -37,40 +56,60 @@
                                 </button>
                             </h2>
                             <hr>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-5 control-label">
+                            <div class="form-group my-form-group">
+                                <label for="inputEmail3" class="control-label">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    Autor:
+                                </label>
+                                <select name="status" class="form-control">
+                                    <option selected="">Peter Clayder</option>
+                                    <option>Fulano</option>
+                                </select>
+                            </div>
+                            <div class="form-group my-form-group">
+                                <label for="inputEmail3" class="control-label">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                     Visibilidade:
                                 </label>
-                                <div class="col-sm-7">
-                                    <select name="status" class="form-control">
-                                        <option selected="">Publicado</option>
-                                        <option>Rascunho</option>
-                                    </select>
-                                </div>
+                                <select name="status" class="form-control">
+                                    <option selected="">Publicado</option>
+                                    <option>Rascunho</option>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-6 control-label">
+                            <div class="form-group my-form-group">
+                                <label for="inputEmail3" class="control-label">
                                     <i class="fa fa-file-image-o" aria-hidden="true"></i>
                                     Layout da página:
                                 </label>
-                                <div class="col-sm-6">
-                                    <select name="layout" class="form-control">
-                                        <option selected="">Padrão</option>
-                                    </select>
-                                </div>
+                                <select name="layout" class="form-control">
+                                    <option selected="">Padrão</option>
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label for="inputEmail3" class="col-sm-5 control-label">
+                            <div class="form-group my-form-group">
+                                <label for="inputEmail3" class="control-label">
                                     <i class="fa fa-key" aria-hidden="true"></i>
                                     Status:
                                 </label>
-                                <div class="col-sm-7">
-                                    <select name="status" class="form-control">
-                                        <option selected="">Público</option>
-                                        <option>Privado</option>
-                                    </select>
-                                </div>
+                                <select name="status" class="form-control">
+                                    <option selected="">Público</option>
+                                    <option>Privado</option>
+                                </select>
+                            </div>
+                            <div class="form-group my-form-group">
+                                <label for="inputEmail3" class="control-label">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                    Categoria:
+                                </label>
+                                <select name="status" class="form-control">
+                                    <option selected="">Nenhuma</option>
+                                </select>
+                            </div>
+                            <div class="form-group my-form-group">
+                                <label for="inputEmail3" class="control-label">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    Agendamento:
+                                </label>
+                                <input type="date" name="agendamento" class="form-control"/>
                             </div>
                         </div>
                         <div class="col-lg-12 bloco-conteudo afastamento">
@@ -91,7 +130,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </form>
     </div>
 </div>

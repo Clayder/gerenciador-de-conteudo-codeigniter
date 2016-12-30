@@ -13,7 +13,22 @@ tinymce.init({
       alignleft: {selector: 'img',style:{float: 'left', margin: '0 10px 0 0'}},
       alignright: {selector: 'img',style:{float: 'right', margin: '0 0 0 10px'}}
   },
-    external_filemanager_path:base_url+"/assets/admin/tinymce/filemanager/",
+    external_filemanager_path:base_url()+"/assets/admin/tinymce/filemanager/",
    filemanager_title:"Gerenciador de mídia" ,
-   external_plugins: { "filemanager" : base_url+"/assets/admin/tinymce/filemanager/plugin.min.js"}
+   external_plugins: { "filemanager" : base_url()+"/assets/admin/tinymce/filemanager/plugin.min.js"}
+});
+
+tinymce.init({
+  selector: '.editor-comentario',
+  height: 500,
+  language: 'pt_BR',
+  plugins: [
+
+  ],
+  toolbar: '',
+  content_css: ['//www.tinymce.com/css/codepen.min.css'],
+  formats:{
+      alignleft: {selector: 'img',style:{float: 'left', margin: '0 10px 0 0'}},
+      alignright: {selector: 'img',style:{float: 'right', margin: '0 0 0 10px'}}
+  }
 });

@@ -8,12 +8,12 @@ class Home extends MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->pastaPagina = "componente";
+        $this->pastaPagina = "principal";
     }
 
     public function index()
     {
-        $this->pagina = "index";
+        $this->pagina = "home";
         $this->exibirPagina();
     }
 

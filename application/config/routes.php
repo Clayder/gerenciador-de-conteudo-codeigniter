@@ -52,3 +52,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'admin/pagina';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['admin/pagina/categoriaExcluir/(:num)']['DELETE'] = 'admin/pagina/categoriaExcluir/$1';
