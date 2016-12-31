@@ -129,3 +129,11 @@ div.bloco-left{
     border-radius: 20px;
 }
 .iconInput i { position: absolute; padding: 14px 10px }
+
+tr>th ,table>tbody{
+    text-align: center;
+}
+table>thead{
+    background-color: #333333;
+    color: #fff;
+}

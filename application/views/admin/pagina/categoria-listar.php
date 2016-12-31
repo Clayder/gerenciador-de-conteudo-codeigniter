@@ -65,7 +65,7 @@
                     <i style="font-size: 20px;" class="fa fa-search" aria-hidden="true"></i>
                     <input type="text" class="form-control input-lg" placeholder="Pesquisar categoria" ng-model="pesquisarCategoria"/>
                 </div>
-                <table class="table table-striped">   
+                <table class="table table-striped" ng-click = "categoria.listarCategorias()">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -81,7 +81,7 @@
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr ng-repeat="categ in categoria.categorias| filter:pesquisarCategoria ">
+                        <tr ng-repeat="categ in categoria.categorias| filter:pesquisarCategoria " >
                             <td>
                                 {{categ.nome}}
                             </td>

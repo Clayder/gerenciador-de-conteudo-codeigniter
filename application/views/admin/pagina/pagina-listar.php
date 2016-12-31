@@ -11,145 +11,74 @@
                 </h1>
             </div>
         </div>
+        <?= $this->session->userdata('mensagem') <> '' ? $this->session->userdata('mensagem')
+        : '';
+        ?>
         <div class="row">
             <div class="col-lg-12">
-                <table class="table table-striped">   
+                <div class="row" style="margin-bottom: 10px">
+                    <div class="col-md-8 text-center">
+                        <div style="margin-top: 8px" id="message">
+                            <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+                        </div>
+                    </div>
+                    <div class="col-md-1 text-right">
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <form action="<?= base_url_admin('pagina'); ?>" class="form-inline" method="get">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
+                                <span class="input-group-btn">
+                                    <?php if ($q != ''): ?>
+                                        <a href="<?= base_url_admin('pagina'); ?>" class="btn btn-default">Resetar</a>
+                                    <?php endif; ?>
+                                    <button class="btn btn-primary" type="submit">Pesquisar</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <table class="table table-bordered" style="margin-bottom: 10px">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Título</th>
+                            <th>Slug</th>
+                            <th>Texto</th>
+                            <th>Resumo</th>
                             <th>Status</th>
-                            <th>Data</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
+                    <?php foreach ($pagina_data as $pagina): ?>
                         <tr>
-                            <th>Título</th>
-                            <th>Status</th>
-                            <th>Data</th>
-                            <th>Editar</th>
-                            <th>Excluir</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <a class="" href="<?php echo base_url_admin('quem_somos'); ?>">
-                                    Quem somos
-                                </a>
-                            </td>
-                            <td>Publicado </td>
-                            <td>11/10/2016</td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-lg">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <form action="<?php base_url_admin('cms/pagina/excluir'); ?>" method="POST" onsubmit="return confirm('Você realmente deseja excluír ?')">
-                                    <button type="submit" class="btn btn-danger btn-lg">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            <td width="80px"><?php echo ++$start ?></td>
+                            <td><?= $pagina->titulo ?></td>
+                            <td><?= $pagina->slug ?></td>
+                            <td><?= $pagina->texto ?></td>
+                            <td><?= $pagina->resumo ?></td>
+                            <td><?= $pagina->status ?></td>
+                            <td style="text-align:center" width="200px">
+                                <form action="<?= base_url_admin('pagina/excluir');?>" method="POST"  onclick="return confirm('Realmente deseja excluir ?');">
+                                    <input type="hidden" name="id" value="<?= $pagina->id; ?>" />
+                                    <a href="<?= base_url_admin("pagina/exibir/$pagina->id"); ?>" class="btn btn-info" title="Exibir"> <i class="fa fa-eye" aria-hidden="true"></i> </a>
+                                    <a href="<?= base_url_admin("pagina/editar/$pagina->id"); ?>" class="btn btn-warning" title="Editar"> <i class="fa fa-text-width" aria-hidden="true"></i> </a>
+                                    <button type="submit" class="btn btn-danger" title="Excluír">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
                                 </form>
-
                             </td>
                         </tr>
-                        <tr>
-                            
-                            <td>
-                                <a class="" href="<?php echo base_url_admin('quem_somos'); ?>">
-                                    Quem somos
-                                </a>
-                            </td>
-                            <td>Publicado </td>
-                            <td>11/10/2016</td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-lg">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <form action="<?php base_url_admin('cms/pagina/excluir'); ?>" method="POST" onsubmit="return confirm('Você realmente deseja excluír ?')">
-                                    <button type="submit" class="btn btn-danger btn-lg">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </button>
-                                </form>
-
-                            </td>
-                        </tr>
-                        <tr>
-                          
-                            <td>
-                                <a class="" href="<?php echo base_url_admin('quem_somos'); ?>">
-                                    Quem somos
-                                </a>
-                            </td>
-                            <td>Publicado </td>
-                            <td>11/10/2016</td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-lg">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <form action="<?php base_url_admin('cms/pagina/excluir'); ?>" method="POST" onsubmit="return confirm('Você realmente deseja excluír ?')">
-                                    <button type="submit" class="btn btn-danger btn-lg">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </button>
-                                </form>
-
-                            </td>
-                        </tr>
-                        <tr>
-                          
-                            <td>
-                                <a class="" href="<?php echo base_url_admin('quem_somos'); ?>">
-                                    Quem somos
-                                </a>
-                            </td>
-                            <td>Publicado </td>
-                            <td>11/10/2016</td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-lg">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <form action="<?php base_url_admin('cms/pagina/excluir'); ?>" method="POST" onsubmit="return confirm('Você realmente deseja excluír ?')">
-                                    <button type="submit" class="btn btn-danger btn-lg">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </button>
-                                </form>
-
-                            </td>
-                        </tr>
-                        <tr>
-                          
-                            <td>
-                                <a class="" href="<?php echo base_url_admin('quem_somos'); ?>">
-                                    Quem somos
-                                </a>
-                            </td>
-                            <td>Publicado </td>
-                            <td>11/10/2016</td>
-                            <td>
-                                <button type="button" class="btn btn-info btn-lg">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                </button>
-                            </td>
-                            <td>
-                                <form action="<?php base_url_admin('cms/pagina/excluir'); ?>" method="POST" onsubmit="return confirm('Você realmente deseja excluír ?')">
-                                    <button type="submit" class="btn btn-danger btn-lg">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                    </button>
-                                </form>
-
-                            </td>
-                        </tr>
-
-                    </tbody>
+                    <?php endforeach; ?>
                 </table>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#" class="btn btn-primary">Quantidade : <?= $total_rows ?></a>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <?= $pagination ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

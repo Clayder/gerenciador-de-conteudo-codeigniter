@@ -176,6 +176,18 @@ if(!function_exists('base_url_cms')){
     }
 }
 
+if(!function_exists('redirect_cms')){
+    function redirect_admin($local = ""){
+        $CI = & get_instance();
+        $pasta_admin = $CI->config->item('pasta_admin');
+        if($local == ""){
+            return redirect($pasta_admin);
+        }else{
+            return redirect($pasta_admin.'/'.$local);
+        }
+    }
+}
+
 
 
        

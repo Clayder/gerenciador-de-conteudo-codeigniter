@@ -3,9 +3,6 @@ angular.module('notesApp', [])
 
             var app = this;
 
-            /*
-             * Retorna as categorias
-             */
             app.mensagem = msgCarregandoCateg;
             app.classMensage = "alert-info";
             $http.get(base_url_admin('pagina/getCategorias')).success(function (data) {
@@ -93,7 +90,7 @@ angular.module('notesApp', [])
                     // Atualizar a lista de categorias
                     if (data) {
                         setTimeout(function () {
-                            window.location = base_url_admin('pagina/categoria/'+app.dados.id);
+                            window.location = base_url_admin('pagina/categoria/' + app.dados.id);
                         }, 1000);
                     }
 

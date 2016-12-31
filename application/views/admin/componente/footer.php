@@ -35,12 +35,13 @@
 <!-- angularjs -->
 <script src="<?php echo base_url('assets/admin/app/angular/angular.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/admin/app/config.js'); ?>"></script>
-<script src="<?php echo base_url('assets/admin/app/service/categoria-pagina-service.js'); ?>"></script>
+
 
 <?php
 foreach ($script as $value)
 {
-  echo $value;  
+  echo $value;
+  echo "\n";
 }
 ?>
 </body>

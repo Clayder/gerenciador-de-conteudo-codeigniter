@@ -12,7 +12,8 @@ function CategoriaService() {
     /*
      * Retorna as categorias
      */
-    function getCategorias($http) {
+
+       function getCategorias($http) {
         console.log($http);
         $http.get(base_url_admin('pagina/getCategorias')).success(function (data) {
             console.log(data);

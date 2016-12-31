@@ -12,6 +12,7 @@
             </div>
         </div>
         <form action="<?php echo base_url_admin('pagina/cadastro'); ?>" method="POST" class="form-horizontal">
+            <?= validation_errors(); ?>
             <div class="row bloco">
                 <div class="col-lg-8 bloco-left">
                     <div class="form-group">
@@ -21,7 +22,7 @@
                     </div> 
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <textarea class="editor-texto" name="texto1">
+                            <textarea class="editor-texto" name="texto">
                                 
                             </textarea>
                         </div>
@@ -42,7 +43,7 @@
                         <span id="helpBlock" class="help-block">
                             O “slug” é uma versão amigável do URL. Normalmente, é todo em minúsculas e contém apenas letras, números e hífens.
                         </span>
-                        <input type="text" name="agendamento" class="form-control"/>
+                        <input type="text" name="slug" class="form-control"/>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -55,35 +56,7 @@
                                 </button>
                             </h2>
                             <hr>
-                            <div class="form-group my-form-group">
-                                <label for="inputEmail3" class="control-label">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                    Autor:
-                                </label>
-                                <select name="status" class="form-control">
-                                    <option selected="">Peter Clayder</option>
-                                    <option>Fulano</option>
-                                </select>
-                            </div>
-                            <div class="form-group my-form-group">
-                                <label for="inputEmail3" class="control-label">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                    Visibilidade:
-                                </label>
-                                <select name="status" class="form-control">
-                                    <option selected="">Publicado</option>
-                                    <option>Rascunho</option>
-                                </select>
-                            </div>
-                            <div class="form-group my-form-group">
-                                <label for="inputEmail3" class="control-label">
-                                    <i class="fa fa-file-image-o" aria-hidden="true"></i>
-                                    Layout da página:
-                                </label>
-                                <select name="layout" class="form-control">
-                                    <option selected="">Padrão</option>
-                                </select>
-                            </div>
+                           
                             <div class="form-group my-form-group">
                                 <label for="inputEmail3" class="control-label">
                                     <i class="fa fa-key" aria-hidden="true"></i>
@@ -103,39 +76,30 @@
                                     </button>
                                 </label>
                                 <div class="row afastamento" ng-hide="!pagina.exibirCategoria">
-                                    <form class="" name="formAddCateg">
-                                        <div class="col-xs-10">
-                                            <input type="text" class="form-control" placeholder="Nome da categoria">
-                                        </div>
-                                        <hr>
-                                        <button type="submit" class="btn btn-success">
-                                            <i class="fa fa-save" aria-hidden="true"></i>
-                                            Salvar
-                                        </button>
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fa fa-close" aria-hidden="true"></i>
-                                            Cancelar
-                                        </button>
-                                    </form>
-                                </div>
-                                <div style="max-height: 100px; overflow-y: auto;">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Serviços
-                                        </label>
+
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="pagina.inputNovaCategoria.nome" ng-init="pagina.inputNovaCategoria.nome = ''" placeholder="Nome da categoria">
                                     </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Trabalhos
-                                        </label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> Categoria 3
-                                        </label>
-                                    </div>
+                                    <hr>
+                                    <button type="button" class="btn btn-success" ng-click = "pagina.submitCadastrarCategoria()">
+                                        <i class="fa fa-save" aria-hidden="true"></i>
+                                        Salvar
+                                    </button>
+                                    <button type="button" class="btn btn-danger" ng-click="pagina.buttonAddCateg()">
+                                        <i class="fa fa-close" aria-hidden="true"></i>
+                                        Cancelar
+                                    </button>
 
                                 </div>
+                                <div style="max-height: 100px; overflow-y: auto;" >
+                                    <div class="checkbox" ng-repeat="categ in pagina.categorias">
+                                        <label>
+                                            <input name="categoria[]" type="checkbox" value="{{categ.id}}"> {{categ.nome}}
+                                        </label>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                         <div class="col-lg-12 bloco-conteudo afastamento">
@@ -150,7 +114,7 @@
                                     Remover Imagem 
                                 </a>
                                 <img src="" alt="" title="" id="prev_img" class="img-responsive" style="margin-top: 10px;"/>
-                                <input type="hidden" value="" id="nome_img" class="form-control" />
+                                <input type="hidden" value="" name="imagem" id="nome_img" class="form-control" />
                             </div>
                         </div>
                     </div>
