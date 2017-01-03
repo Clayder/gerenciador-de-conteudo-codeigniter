@@ -5,7 +5,7 @@ class Pagina_model extends MY_Model
 {
     const TB_PAGINA           = 'pagina';
     const TB_PAGINA_CATEGORIA = 'pagina-categoria';
-    const TB_CATEGORIA = 'categoria-pagina';
+    const TB_CATEGORIA        = 'categoria-pagina';
     const ID                  = 'id';
     const ORDER               = 'ASC';
 
@@ -70,14 +70,32 @@ class Pagina_model extends MY_Model
         return $this->db->count_all_results();
     }
 
-    public function getPagina($id){
+    public function getPagina($id)
+    {
         $pagina = parent::get(self::TB_PAGINA, 'id', $id);
-        $pagina['categorias'] = $this->getCategoriaByFk($pagina['id'], 'fkPagina');
+        if (count($pagina) != 0) {
+            $pagina['categorias'] = $this->getCategoriaByFk($pagina['id'],
+                'fkPagina');
+        }
         return $pagina;
     }
 
-    public function getCategoriaByFk($fk, $campoFk){
-       $this->db->where($campoFk, $fk);
-       return $this->db->get(self::TB_PAGINA_CATEGORIA)->result_array();
+    public function editarPagina($dadosPagina, $dadosCategoria, $id)
+    {
+        parent::editar(self::TB_PAGINA, 'id', $id,
+                $dadosPagina);
+        $this->editarPaginaCategoria($dadosCategoria, $id);
+    }
+
+    public function editarPaginaCategoria($categorias, $id)
+    {
+        parent::excluir(self::TB_PAGINA_CATEGORIA, 'fkPagina', $id);
+        return $this->cadastrarCategoriaPagina($categorias, $id);
+    }
+
+    public function getCategoriaByFk($fk, $campoFk)
+    {
+        $this->db->where($campoFk, $fk);
+        return $this->db->get(self::TB_PAGINA_CATEGORIA)->result_array();
     }
 }

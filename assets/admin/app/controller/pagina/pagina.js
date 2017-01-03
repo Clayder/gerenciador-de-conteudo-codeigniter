@@ -3,7 +3,6 @@ angular.module('notesApp', [])
         .controller('Pagina', function ($http) {
 
             var app = this;
-
             /* Lista as categorias */
             app.mensagem = msgCarregandoCateg;
             app.classMensage = "alert-info";
@@ -18,7 +17,13 @@ angular.module('notesApp', [])
                         app.classMensage = "alert-danger";
                     });
 
-
+            app.verificaCategoriaChecked = function (id) {
+                if (categoriasMarcada.indexOf(id) == -1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
             /* Adicionar nova categoria */
             app.buttonAddCateg = function () {
                 app.exibirCategoria = !app.exibirCategoria;

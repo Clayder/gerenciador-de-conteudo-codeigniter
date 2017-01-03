@@ -103,6 +103,12 @@ div.bloco-conteudo{
     padding: 20px;
 }
 
+div.bloco-conteudo-exbir{
+    background-color: #FFF;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
 /* Define o tamanho do pop-up, do fancy */
 .fancybox-inner{
     min-height: 500px; !important;

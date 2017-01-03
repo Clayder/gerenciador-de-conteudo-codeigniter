@@ -69,4 +69,13 @@ class Categoria_model extends MY_Model
         return $this->db->get(self::TB_CATEGORIA)->result_array();
     }
 
+    public function getCategoriasByIds($arrayIds){
+        $tam = count($arrayIds);
+        $this->db->order_by('nome', 'ASC');
+        for($i = 0; $i < $tam; $i++){
+            $this->db->or_where('id', $arrayIds[$i]);
+        }
+        return $this->db->get(self::TB_CATEGORIA)->result_array();
+    }
+
 }

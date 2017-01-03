@@ -7,8 +7,11 @@ class Pagina extends MY_Controller
     const TB_PAGINA           = 'pagina';
     const ID                  = 'id';
     const TB_PAGINA_CATEGORIA = 'pagina-categoria';
+    const TB_CATEGORIA_PAGINA = 'categoria-pagina';
     const MS_CADAST           = "Cadastro realizado com sucesso.";
     const MS_ERRO_CADAST      = "Erro ao cadastrar.";
+    const MS_EDICAO           = "Edição realizada com sucesso.";
+    const MS_ERRO_EDICAO      = "Erro ao realizar a edição.";
     const MS_EXCLUIR          = "Excluído com sucesso.";
     const MS_ERRO_EXCLUIR     = "Erro ao excluír.";
 
@@ -53,6 +56,61 @@ class Pagina extends MY_Controller
         $this->exibirPagina();
     }
 
+    public function editar($id = null)
+    {
+        if ($id != null) {
+            $this->initScriptPagina();
+            $id    = (integer) $id;
+            $dados = $this->Pagina_model->getPagina($id);
+            if (count($dados) == 0) {
+                $this->mensagem('', 'Página não encontrada', "pagina", false);
+            }
+            $this->conteudo    = $dados;
+            $categoriasIds     = array();
+            $tamDadosCategoria = count($this->conteudo['categorias']);
+            for ($i = 0; $i < $tamDadosCategoria; $i++) {
+                $categoriasIds[] = $this->conteudo['categorias'][$i]['fkCategoria'];
+            }
+            $this->conteudo['categorias'] = $categoriasIds;
+            // pre($this->conteudo);
+            $this->pagina                 = "pagina-editar";
+            $this->exibirPagina();
+        } else {
+            redirect_admin('pagina');
+        }
+    }
+
+    public function edicao()
+    {
+        if ($this->input->method() === "post") {
+            $id = $this->input->post('id');
+            $this->form_validation->set_rules('titulo', 'titulo', 'required');
+            if ($this->form_validation->run() == FALSE) {
+                $this->editar($id);
+            } else {
+                $imagem      = $this->input->post('imagem', true);
+                $dadosPagina = array(
+                    'titulo' => $this->input->post('titulo', TRUE),
+                    'texto' => $this->input->post('texto', TRUE),
+                    'resumo' => $this->input->post('resumo', TRUE),
+                    'slug' => $this->input->post('slug', TRUE),
+                    'status' => $this->input->post('status', TRUE),
+                );
+                if ($imagem != null) {
+                    $dadosPagina['imagem'] = $imagem;
+                }
+
+                $dadosCategoria = $this->input->post('categoria', TRUE);
+                $this->Pagina_model->editarPagina($dadosPagina,
+                    $dadosCategoria, $id);
+                $this->mensagem(self::MS_EDICAO, self::MS_ERRO_EDICAO,
+                    "pagina/editar/$id", true);
+            }
+        } else {
+            redirect_admin('pagina');
+        }
+    }
+
     public function cadastrar()
     {
         $this->initScriptPagina();
@@ -93,16 +151,18 @@ class Pagina extends MY_Controller
                     'imagem' => $this->input->post('imagem', TRUE),
                 );
                 $dadosCategoria = $this->input->post('categoria', TRUE);
-                $return = $this->Pagina_model->add($dadosPagina, $dadosCategoria);
-                $this->mensagem(self::MS_CADAST, self::MS_ERRO_CADAST, "pagina", $return);
+                $return         = $this->Pagina_model->add($dadosPagina,
+                    $dadosCategoria);
+                $this->mensagem(self::MS_CADAST, self::MS_ERRO_CADAST, "pagina",
+                    $return);
             }
         }
     }
 
-    private function mensagem($msn, $msnErro, $redirect, $retornoFuncao = null)
+    private function mensagem($msn, $msnErro, $redirect, $retornoFuncao = true)
     {
         $msnCadastro = mensagemAfirmacao($msn);
-        if (!$retornoFuncao && $retornoFuncao != null) {
+        if (!$retornoFuncao) {
             $msnCadastro = mensagemErro($msnErro);
         }
         $this->session->set_flashdata('mensagem', $msnCadastro);
@@ -192,18 +252,37 @@ class Pagina extends MY_Controller
     public function excluir()
     {
         if ($this->input->method() === "post") {
-            $id = (integer) $this->input->post('id', true);
-            $return = $this->Pagina_model->excluir(self::TB_PAGINA, self::ID, $id);
-            $this->mensagem(self::MS_EXCLUIR, self::MS_ERRO_EXCLUIR, "pagina", $return);
+            $id     = (integer) $this->input->post('id', true);
+            $return = $this->Pagina_model->excluir(self::TB_PAGINA, self::ID,
+                $id);
+            $this->mensagem(self::MS_EXCLUIR, self::MS_ERRO_EXCLUIR, "pagina",
+                $return);
         } else {
             redirect_admin('pagina');
         }
     }
 
-    public function exibir($id){
-        //pre($this->Pagina_model->getPagina($id));
-        $this->pagina = "pagina-exibir";
-        $this->exibirPagina();
+    public function exibir($id = null)
+    {
+        if ($id != null) {
+            $id    = (integer) $id;
+            $dados = $this->Pagina_model->getPagina($id);
+            if (count($dados) == 0) {
+                $this->mensagem('', 'Página não encontrada', "pagina", false);
+            }
+            $tamDadosCategoria = count($dados['categorias']);
+            $categoriasIds     = array();
+            for ($i = 0; $i < $tamDadosCategoria; $i++) {
+                $categoriasIds[] = $dados['categorias'][$i]['fkCategoria'];
+            }
+            $this->load->model('admin/pagina/Categoria_model', 'Categoria_model');
+            $dados['categorias'] = $this->Categoria_model->getCategoriasByIds($categoriasIds);
+            $this->conteudo      = $dados;
+            $this->pagina        = "pagina-exibir";
+            $this->exibirPagina();
+        } else {
+            redirect_admin('pagina');
+        }
     }
 
     public function initScriptCategoria()
