@@ -1,15 +1,15 @@
-<div id="page-wrapper" class="conteudo" ng-controller="Pagina as pagina">
+<div id="page-wrapper" class="conteudo" ng-controller="Produto as produto">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Adicionar nova página
-                    <?php grupoButtonEditar($id, 'pagina', 'Páginas', 'fa-files-o'); ?>
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Adicionar novo produto
+                    <?php grupoButtonEditar($id, 'produto', 'Produtos', 'fa-cubes'); ?>
                 </h1>
             </div>
         </div>
         <?php echo $this->session->userdata('mensagem') <> '' ? $this->session->userdata('mensagem') : ''; ?>
-        <form action="<?php echo base_url_admin('pagina/edicao'); ?>" method="POST" class="form-horizontal">
+        <form action="<?php echo base_url_admin('produto/edicao'); ?>" method="POST" class="form-horizontal">
             <?= validation_errors(); ?>
             <input type="hidden" value="{id}" name="id" />
             <div class="row bloco">
@@ -23,15 +23,6 @@
                         <div class="col-sm-12">
                             <textarea class="editor-texto" name="texto">{texto}</textarea>
                         </div>
-                    </div>
-                    <div class="form-group bloco-conteudo">
-                        <label for="inputEmail3" class="control-label">
-                            Resumo:
-                        </label>
-                        <span id="helpBlock" class="help-block">
-                            Resumos são pequenas descrições opcionais do conteúdo da sua página feitas manualmente.
-                        </span>
-                        <textarea class="form-control" rows="3" name="resumo">{resumo}</textarea>
                     </div>
                     <div class="form-group bloco-conteudo">
                         <label for="inputEmail3" class="control-label">
@@ -69,30 +60,30 @@
                                 <label for="inputEmail3" class="control-label">
                                     <i class="fa fa-bars" aria-hidden="true"></i>
                                     Categoria:
-                                    <button type="button" class="btn btn-success" ng-click="pagina.buttonAddCateg()">
+                                    <button type="button" class="btn btn-success" ng-click="produto.buttonAddCateg()">
                                         <i class="fa fa-plus-circle" aria-hidden="true"></i> Nova categoria
                                     </button>
                                 </label>
-                                <div class="row afastamento" ng-hide="!pagina.exibirCategoria">
+                                <div class="row afastamento" ng-hide="!produto.exibirCategoria">
 
                                     <div class="col-xs-10">
-                                        <input type="text" class="form-control" ng-model="pagina.inputNovaCategoria.nome" ng-init="pagina.inputNovaCategoria.nome = ''" placeholder="Nome da categoria">
+                                        <input type="text" class="form-control" ng-model="produto.inputNovaCategoria.nome" ng-init="produto.inputNovaCategoria.nome = ''" placeholder="Nome da categoria">
                                     </div>
                                     <hr>
-                                    <button type="button" class="btn btn-success" ng-click = "pagina.submitCadastrarCategoria()">
+                                    <button type="button" class="btn btn-success" ng-click = "produto.submitCadastrarCategoria()">
                                         <i class="fa fa-save" aria-hidden="true"></i>
                                         Salvar
                                     </button>
-                                    <button type="button" class="btn btn-danger" ng-click="pagina.buttonAddCateg()">
+                                    <button type="button" class="btn btn-danger" ng-click="produto.buttonAddCateg()">
                                         <i class="fa fa-close" aria-hidden="true"></i>
                                         Cancelar
                                     </button>
 
                                 </div>
                                 <div style="max-height: 100px; overflow-y: auto;">
-                                    <div class="checkbox" ng-repeat="categ in pagina.categorias">
+                                    <div class="checkbox" ng-repeat="categ in produto.categorias">
                                         <label>
-                                            <input name="categoria[]" type="checkbox" value="{{categ.id}}" ng-checked="pagina.verificaCategoriaChecked(categ.id)"> {{categ.nome}}
+                                            <input name="categoria[]" type="checkbox" value="{{categ.id}}" ng-checked="produto.verificaCategoriaChecked(categ.id)"> {{categ.nome}}
                                         </label>
                                     </div>
                                 </div>

@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-file-text-o" aria-hidden="true"></i> Página: {titulo}
-                    <?php grupoButtonExibir($id, 'pagina', 'Páginas', 'fa-files-o'); ?>
+                    <i class="fa fa-cube" aria-hidden="true"></i> Produto: {titulo}
+                    <?php grupoButtonExibir($id, 'produto', 'Produtos', 'fa-cubes'); ?>
                 </h1>
             </div>
         </div>
@@ -15,13 +15,6 @@
                         <h2> Texto </h2>
                         <hr>
                         <span> {texto}</span>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="col-sm-12 bloco-conteudo-exbir">
-                        <h2> Resumo </h2>
-                        {resumo}
                     </div>
                 </div>
                 <div class="form-group">

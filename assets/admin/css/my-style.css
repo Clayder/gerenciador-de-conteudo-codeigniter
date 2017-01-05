@@ -111,11 +111,25 @@ div.bloco-conteudo-exbir{
 
 /* Define o tamanho do pop-up, do fancy */
 .fancybox-inner{
-    min-height: 500px; !important;
+    min-height: 500px !important; 
 }
 
 div.conteudo{
     min-height: 800px;
+}
+
+.font-2x > span{
+    font-size: 17px;
+    position: relative;
+    bottom: 4px;
+    left: 2px;
+}
+
+div.tabela{
+    margin-bottom: 10px; 
+    max-width: 1800px; 
+    overflow-x: auto; 
+    padding: 0 10px;
 }
 
 div.my-form-group{
@@ -125,7 +139,6 @@ div.my-form-group{
 div.bloco-left{
     padding: 0 20px;
 }
-
 
 .iconInput { position: relative }
 .iconInput input { 
@@ -139,7 +152,21 @@ div.bloco-left{
 tr>th ,table>tbody{
     text-align: center;
 }
+
 table>thead{
     background-color: #333333;
     color: #fff;
+}
+
+.button-grupo{
+    float: left; 
+    margin-left: 7px;
+    margin-bottom: 7px;
+}
+
+.button-grupo-right{
+    float: right; 
+    margin-right: 7px;
+    margin-bottom: 7px;
+    margin-top: 12px;
 }

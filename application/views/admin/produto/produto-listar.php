@@ -3,10 +3,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <i class="fa fa-files-o" aria-hidden="true"></i> Páginas
-                    <a href="<?php echo base_url_admin('pagina/cadastrar'); ?>" class="btn btn-success btn-lg button-topo">
-                        <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                        Adicionar Nova
+                    <i class="fa fa-cubes" aria-hidden="true"></i> Produtos
+                    <a href="<?php echo base_url_admin('produto/cadastrar'); ?>" class="btn btn-success btn-lg button-topo">
+                        <i class="fa fa-cube" aria-hidden="true"></i>
+                        Adicionar Novo
                     </a>
                 </h1>
             </div>
@@ -25,12 +25,12 @@
                     <div class="col-md-1 text-right">
                     </div>
                     <div class="col-md-3 text-right">
-                        <form action="<?= base_url_admin('pagina'); ?>" class="form-inline" method="get">
+                        <form action="<?= base_url_admin('produto'); ?>" class="form-inline" method="get">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
                                 <span class="input-group-btn">
                                     <?php if ($q != ''): ?>
-                                        <a href="<?= base_url_admin('pagina'); ?>" class="btn btn-default">Resetar</a>
+                                        <a href="<?= base_url_admin('produto'); ?>" class="btn btn-default">Resetar</a>
                                     <?php endif; ?>
                                     <button class="btn btn-primary" type="submit">Pesquisar</button>
                                 </span>
@@ -46,21 +46,19 @@
                                 <th>Título</th>
                                 <th>Slug</th>
                                 <th>Texto</th>
-                                <th>Resumo</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <?php foreach ($pagina_data as $pagina): ?>
+                        <?php foreach ($produtos as $produto): ?>
                             <tr>
                                 <td width="80px"><?php echo ++$start ?></td>
-                                <td><?= $pagina->titulo ?></td>
-                                <td><?= $pagina->slug ?></td>
-                                <td><?= $pagina->texto ?></td>
-                                <td><?= $pagina->resumo ?></td>
-                                <td><?= $pagina->status ?></td>
+                                <td><?= $produto->titulo ?></td>
+                                <td><?= $produto->slug ?></td>
+                                <td><?= $produto->texto ?></td>
+                                <td><?= $produto->status ?></td>
                                 <td style="text-align:center" width="200px">
-                                    <?php grupoButtonListar($pagina->id, 'pagina', 'Páginas', 'fa-files-o'); ?>
+                                    <?php grupoButtonListar($produto->id, 'produto', 'Produtos', 'fa-cubes'); ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
