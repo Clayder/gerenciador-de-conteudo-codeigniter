@@ -78,4 +78,10 @@ class MY_Model extends CI_Model
         }
     }
 
+      // get total rows
+    public function count_all($tabela)
+    {
+        return $this->db->count_all($tabela);
+    }
+
 }

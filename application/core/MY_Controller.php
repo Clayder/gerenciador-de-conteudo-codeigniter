@@ -15,6 +15,9 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if (!$this->session->userdata('logado')) {
+            redirect_admin('login');
+        }
         $this->init();
     }
 
@@ -24,6 +27,16 @@ class MY_Controller extends CI_Controller
         $this->sidebar = array();
         $this->conteudo = array();
         $this->footer['script'] = array();
+    }
+
+    public function mensagem($msn, $msnErro, $redirect, $retornoFuncao = true)
+    {
+        $msnCadastro = mensagemAfirmacao($msn);
+        if (!$retornoFuncao) {
+            $msnCadastro = mensagemErro($msnErro);
+        }
+        $this->session->set_flashdata('mensagem', $msnCadastro);
+        redirect_admin($redirect);
     }
 
     protected function exibirPagina()

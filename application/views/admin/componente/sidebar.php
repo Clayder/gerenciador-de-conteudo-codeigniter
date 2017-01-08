@@ -38,30 +38,35 @@
             </ul>
         </li>
         <li>
-            <a href="<?php echo base_url_admin('comentario'); ?>"><i class="fa fa-comments"></i> Mensagens</a>
+            <a href="<?php echo base_url_admin('mensagem'); ?>"><i class="fa fa-comments"></i> Mensagens</a>
         </li>
         <!--
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#drop-users"><i class="fa fa-fw fa-users"></i> Usuários<i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="drop-users" class="collapse">
                 <li>
-                    <a href="<?php //echo base_url_admin('usuario'); ?>">Todos os usuários</a>
+                    <a href="<?php //echo base_url_admin('usuario');  ?>">Todos os usuários</a>
                 </li>
                 <li>
-                    <a href="<?php //echo base_url_admin('usuario/cadastrar'); ?>">Adicionar novo</a>
+                    <a href="<?php //echo base_url_admin('usuario/cadastrar');  ?>">Adicionar novo</a>
                 </li>
                 <li>
-                    <a href="<?php //echo base_url_admin('usuario/perfil'); ?>">Seu perfil</a>
+                    <a href="<?php //echo base_url_admin('usuario/perfil');  ?>">Seu perfil</a>
                 </li>
             </ul>
         </li>
         -->
+        <li>
+            <a href="<?= base_url_admin('empresa'); ?>"><i class="fa fa-university" aria-hidden="true"></i> A empresa</a>
+        </li>
+        <!--
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#drop-config"><i class="fa fa-fw fa-cog"></i> Configurações<i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="drop-config" class="collapse">
 
             </ul>
         </li>
+        -->
     </ul>
 </div>
 <!-- /.navbar-collapse -->

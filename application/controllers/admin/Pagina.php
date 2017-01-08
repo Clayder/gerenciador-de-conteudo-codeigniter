@@ -20,6 +20,7 @@ class Pagina extends MY_Controller
         parent::__construct();
         $this->pastaPagina = "pagina";
         $this->load->model("admin/pagina/Pagina_model");
+        $this->header['ngApp'] = 'ng-app="notesApp"';
     }
 
     public function index()
@@ -160,16 +161,6 @@ class Pagina extends MY_Controller
                     $return);
             }
         }
-    }
-
-    private function mensagem($msn, $msnErro, $redirect, $retornoFuncao = true)
-    {
-        $msnCadastro = mensagemAfirmacao($msn);
-        if (!$retornoFuncao) {
-            $msnCadastro = mensagemErro($msnErro);
-        }
-        $this->session->set_flashdata('mensagem', $msnCadastro);
-        redirect_admin($redirect);
     }
 
     public function categorias()

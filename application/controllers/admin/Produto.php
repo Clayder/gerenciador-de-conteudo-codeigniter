@@ -20,6 +20,7 @@ class Produto extends MY_Controller
         parent::__construct();
         $this->pastaPagina = "produto";
         $this->load->model("admin/produto/Produto_model", "Produto_model");
+        $this->header['ngApp'] = 'ng-app="notesApp"';
     }
 
     public function index()
@@ -161,16 +162,6 @@ class Produto extends MY_Controller
         }
     }
 
-    private function mensagem($msn, $msnErro, $redirect, $retornoFuncao = true)
-    {
-        $msnCadastro = mensagemAfirmacao($msn);
-        if (!$retornoFuncao) {
-            $msnCadastro = mensagemErro($msnErro);
-        }
-        $this->session->set_flashdata('mensagem', $msnCadastro);
-        redirect_admin($redirect);
-    }
-
     public function categorias()
     {
         $this->conteudo['linkCategoria'] = base_url_admin('produto/categoria/');
@@ -285,6 +276,11 @@ class Produto extends MY_Controller
         } else {
             redirect_admin('produto');
         }
+    }
+
+    public function apiProdutos(){
+        $produtos = $this->Produto_model->getAll('produto', array('titulo', 'asc'));
+        echo json_encode($produtos);
     }
 
     public function initScriptCategoria()

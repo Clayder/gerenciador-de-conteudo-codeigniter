@@ -19,8 +19,8 @@
                                 <i class="fa fa-comments fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">26</div>
-                                <div>Comentários</div>
+                                <div class="huge">{qtdMensagens}</div>
+                                <div>Mensagens</div>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                 <i class="fa fa-users fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">{qtdUsuarios}</div>
                                 <div>Usuários</div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                 <i class="fa fa-files-o fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">03</div>
+                                <div class="huge">{qtdPaginas}</div>
                                 <div>Páginas</div>
                             </div>
                         </div>
@@ -82,15 +82,15 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-newspaper-o fa-5x"></i>
+                                <i class="fa fa-cubes fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">08</div>
-                                <div>Posts</div>
+                                <div class="huge">{qtdProdutos}</div>
+                                <div>Produtos</div>
                             </div>
                         </div>
                     </div>
-                    <a href="<?php echo base_url_admin('post'); ?>">
+                    <a href="<?php echo base_url_admin('produto'); ?>">
                         <div class="panel-footer">
                             <span class="pull-left">Ver detalhes</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

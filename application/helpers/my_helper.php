@@ -12,15 +12,14 @@ if (!function_exists('pre')) {
     }
 }
 
+
+
 if (!function_exists('formatarData')) {
 
-    function formatarData($data, $formato)
+    function data_brasil($data)
     {
-        $data = str_replace('/', '-', $data);
-        if ($data != NULL && $data != "") {
-            $result = new DateTime($data);
-            return $result->format($formato);
-        }
+        $data_brasil = DateTime::createFromFormat('Y-m-d', $data);
+        return $data_brasil->format('d/m/Y');
     }
 }
 
@@ -152,6 +151,22 @@ if (!function_exists('base_url_cms')) {
     }
 }
 
+if (!function_exists('enviar_email')) {
+
+    function enviar_email($from, $to, $assunto, $mensagem)
+    {
+        $CI = & get_instance();
+        $CI->load->library('email');
+
+        $CI->email->from($from['email'], $from['nome']);
+        $CI->email->to($to);
+        $CI->email->subject($assunto);
+        $CI->email->message($mensagem);
+        $CI->email->send();
+    }
+}
+
+
 if (!function_exists('redirect_cms')) {
 
     function redirect_admin($local = "")
@@ -168,6 +183,7 @@ if (!function_exists('redirect_cms')) {
 
 // grupo de buttons da pagina exibir
 if (!function_exists('grupoButtonExibir')) {
+
     // @var nomePrincipal: ex: Página, Produto
     function grupoButtonExibir($id, $controller, $nomePrincipal, $icone)
     {
@@ -193,9 +209,9 @@ if (!function_exists('grupoButtonListar')) {
 
     function grupoButtonListar($id, $controller, $nomePrincipal, $icone)
     {
-        buttonExcluir($id, '',$controller);
-        buttonEditar($id, '',$controller);
-        buttonExibir($id, '',$controller, $icone);
+        buttonExcluir($id, '', $controller);
+        buttonEditar($id, '', $controller);
+        buttonExibir($id, '', $controller, $icone);
     }
 }
 
@@ -207,8 +223,8 @@ if (!function_exists('buttonExcluir')) {
         echo "<form action = '".base_url_admin($controller.'/excluir')."' method = 'POST' class = 'button-grupo-right' onclick = \" return confirm('Realmente deseja excluir ?')\">";
         echo "<input type = 'hidden' name = 'id' value = '$id' />";
         echo "<button type = 'submit' class = 'btn btn-danger font-2x' title = 'Excluír'>";
-        echo "<i class = 'fa fa-trash fa-2x' aria-hidden = 'true'></i>" ;
-        if($texto != ''){
+        echo "<i class = 'fa fa-trash fa-2x' aria-hidden = 'true'></i>";
+        if ($texto != '') {
             echo "<span> $texto </span>";
         }
         echo "</button>";
@@ -223,7 +239,7 @@ if (!function_exists('buttonEditar')) {
     {
         echo "<a href = '".base_url_admin("$controller/editar/$id")."' class = 'btn btn-warning button-grupo-right font-2x' title = 'Editar'>";
         echo "<i class = 'fa fa-pencil-square-o fa-2x' aria-hidden = 'true'></i>";
-        if($texto != ''){
+        if ($texto != '') {
             echo "<span> $texto </span>";
         }
         echo "</a>";
@@ -237,7 +253,7 @@ if (!function_exists('buttonExibir')) {
     {
         echo "<a href = '".base_url_admin("$controller/exibir/$id")."' class = 'btn btn-info button-grupo-right font-2x' title = 'Editar'>";
         echo "<i class = 'fa fa-eye fa-2x' aria-hidden = 'true'></i>";
-        if($texto != ''){
+        if ($texto != '') {
             echo "<span> $texto </span>";
         }
         echo "</a>";
@@ -251,7 +267,7 @@ if (!function_exists('buttonListar')) {
     {
         echo "<a href = '".base_url_admin($controller)."' class = 'btn btn-primary button-topo font-2x button-grupo-right'>";
         echo "<i class = 'fa $icone fa-2x' aria-hidden = 'true'></i>";
-        if($texto != ''){
+        if ($texto != '') {
             echo "<span> $texto </span>";
         }
         echo "</a>";
