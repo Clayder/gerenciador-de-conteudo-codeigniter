@@ -1,0 +1,400 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: 08-Jan-2017 às 05:39
+-- Versão do servidor: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `sige`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categoria-pagina`
+--
+
+CREATE TABLE `categoria-pagina` (
+  `id` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `slug` text NOT NULL,
+  `pai` int(11) NOT NULL DEFAULT '0',
+  `descricao` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categoria-produto`
+--
+
+CREATE TABLE `categoria-produto` (
+  `id` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `slug` text NOT NULL,
+  `pai` int(11) NOT NULL,
+  `descricao` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ci_sessions`
+--
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(40) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `ci_sessions`
+--
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('bb79165e9be5d12355b752d0639a8a60de727719', '::1', 1483831896, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833313833333b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('4e7099dfade6515b0eef6597c8941a939acef883', '::1', 1483833693, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833333632303b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('6a96639235b001cffa540b5682687e7685b9f42f', '::1', 1483834585, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833343337393b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('f55457e9a8a2061ec41002902dbd20b9e767d2fc', '::1', 1483835092, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833343831383b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('9630a987d2d70fe67887148574f878b72acf9239', '::1', 1483835357, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833353136303b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('db10c2ffa327c52c774eccc569ab4d991a23987d', '::1', 1483835744, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833353437373b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('8f8616ee6ab4b899e5bb43428b5b471008dc9155', '::1', 1483836000, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833363030303b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('98483fa40d9d2da7800c9655c6a8382591f5bdd3', '::1', 1483836655, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833363336303b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('cde063ec992b1b70d2b56e0701f9606a83f8e41c', '::1', 1483837013, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833363734393b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('c89c2cd3bdfc01780583bb07752e9545e86cd46c', '::1', 1483837793, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833373535383b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('18a4d53b750dfae356d344c15099c21ab1be98b7', '::1', 1483838210, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833373934343b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('70bd3ba64a9423691ef07e30ba775819da67696d', '::1', 1483838724, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833383435393b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b6d656e736167656d7c733a3131343a223c64697620636c6173733d27616c65727420616c6572742d737563636573732720726f6c653d27616c65727427207374796c653d276d617267696e2d746f703a20313070783b206d617267696e2d626f74746f6d3a2031307078273e4d656e736167656d20656e76696164613c2f6469763e223b5f5f63695f766172737c613a313a7b733a383a226d656e736167656d223b733a333a226f6c64223b7d),
+('56797af4e5e7e045495cb8218c0a67757a557f27', '::1', 1483838968, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833383833373b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('0bae9f59bb6db117ac99d69366a5d2170ef12bc3', '::1', 1483839253, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833393134333b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('c59a2e176dae1b6100823bfe4f0cf3429bf0a1c2', '::1', 1483839746, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333833393532393b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('5c98ba43eac7550c02250a8e738f8ea58f653bf5', '::1', 1483840298, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834303031383b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('4c770c02e60c1766b75e620d32587b095497d7ce', '::1', 1483840964, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834303835303b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b6d656e736167656d7c733a3132303a223c64697620636c6173733d27616c65727420616c6572742d737563636573732720726f6c653d27616c65727427207374796c653d276d617267696e2d746f703a20313070783b206d617267696e2d626f74746f6d3a2031307078273e4578636c75c3ad646f20636f6d207375636573736f2e3c2f6469763e223b5f5f63695f766172737c613a313a7b733a383a226d656e736167656d223b733a333a226f6c64223b7d),
+('f1c35d7ef25df1c2d455d85cdc2b73e5d7175df1', '::1', 1483841438, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834313331353b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('4dbb03ec0e0130e564ba8fbfbfedb196d9dc6ffb', '::1', 1483842915, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834323735313b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('577b0be426be8e93ca07ea4046be5050661f90dc', '::1', 1483843298, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834333037373b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('34fc0fcc238bcd36350abb845bfcfa4161b3f9c2', '::1', 1483843632, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834333338363b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b6d656e736167656d7c733a3131343a223c64697620636c6173733d27616c65727420616c6572742d737563636573732720726f6c653d27616c65727427207374796c653d276d617267696e2d746f703a20313070783b206d617267696e2d626f74746f6d3a2031307078273e4d656e736167656d20656e76696164613c2f6469763e223b5f5f63695f766172737c613a313a7b733a383a226d656e736167656d223b733a333a226f6c64223b7d),
+('15d8e391acfaae50c1f44fe86108fd876c849169', '::1', 1483843918, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834333639383b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('e00b3a5864e98a6900184bde1d62b0d0f5f29c33', '::1', 1483844297, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834343030343b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('f690915e8aa41d99e57b168edddf64af6c58e8d2', '::1', 1483844448, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834343331313b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b6d656e736167656d7c733a3132303a223c64697620636c6173733d27616c65727420616c6572742d737563636573732720726f6c653d27616c65727427207374796c653d276d617267696e2d746f703a20313070783b206d617267696e2d626f74746f6d3a2031307078273e4578636c75c3ad646f20636f6d207375636573736f2e3c2f6469763e223b5f5f63695f766172737c613a313a7b733a383a226d656e736167656d223b733a333a226f6c64223b7d),
+('9f10a72ad7a274e4f31bca7821ee605cb7b4208b', '::1', 1483844925, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834343733353b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b),
+('0d670c30c4ca43694abc3dd18a6c9587e2e75d09', '::1', 1483845647, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438333834353634373b69647c733a313a2231223b6e6f6d657c733a353a224c696e6b6f223b6c6f6761646f7c623a313b);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `id` int(11) NOT NULL,
+  `nome` text NOT NULL,
+  `cep` varchar(45) NOT NULL,
+  `estado` varchar(45) NOT NULL,
+  `cidade` varchar(45) NOT NULL,
+  `bairro` varchar(45) NOT NULL,
+  `rua` varchar(45) NOT NULL,
+  `complemento` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `empresa`
+--
+
+INSERT INTO `empresa` (`id`, `nome`, `cep`, `estado`, `cidade`, `bairro`, `rua`, `complemento`) VALUES
+(1, 'Lanchonete Coma Bem', '28894-334', 'RJ', 'Rio das Ostras', 'Nova Cidade', 'Rua Rio das Ostras', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `imagem`
+--
+
+CREATE TABLE `imagem` (
+  `id` int(11) NOT NULL,
+  `titulo` text,
+  `src` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `mensagem`
+--
+
+CREATE TABLE `mensagem` (
+  `nome` varchar(45) NOT NULL,
+  `mensagem` longtext NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pagina`
+--
+
+CREATE TABLE `pagina` (
+  `id` int(11) NOT NULL,
+  `titulo` text NOT NULL,
+  `slug` text NOT NULL,
+  `texto` longtext,
+  `resumo` longtext,
+  `status` varchar(45) NOT NULL,
+  `imagem` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pagina-categoria`
+--
+
+CREATE TABLE `pagina-categoria` (
+  `id` int(11) NOT NULL,
+  `fkPagina` int(11) NOT NULL,
+  `fkCategoria` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `pagina-categoria`
+--
+
+INSERT INTO `pagina-categoria` (`id`, `fkPagina`, `fkCategoria`) VALUES
+(15, 10, 91),
+(16, 10, 85),
+(17, 10, 73),
+(18, 10, 74),
+(19, 10, 81),
+(20, 10, 82),
+(21, 10, 87),
+(22, 10, 88),
+(23, 10, 89),
+(24, 10, 90),
+(25, 10, 86),
+(26, 10, 93),
+(27, 10, 94),
+(28, 10, 92),
+(29, 10, 83),
+(30, 10, 84),
+(47, 12, 85),
+(144, 11, 95),
+(145, 11, 91),
+(146, 11, 85),
+(147, 11, 73),
+(148, 11, 81),
+(149, 11, 82),
+(150, 11, 87),
+(151, 11, 92),
+(152, 11, 83),
+(153, 11, 84),
+(154, 12, 91),
+(155, 12, 85),
+(156, 14, 91),
+(157, 14, 85),
+(158, 14, 73),
+(159, 26, 96),
+(160, 27, 99),
+(161, 27, 91);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `id` int(11) NOT NULL,
+  `titulo` text NOT NULL,
+  `texto` longtext,
+  `visibilidade` varchar(45) NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `imagem` text,
+  `slug` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produto-categoria`
+--
+
+CREATE TABLE `produto-categoria` (
+  `id` int(11) NOT NULL,
+  `fkProduto` int(11) NOT NULL,
+  `fkCategoria` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produto-categoria`
+--
+
+INSERT INTO `produto-categoria` (`id`, `fkProduto`, `fkCategoria`) VALUES
+(3, 3, 2),
+(4, 3, 1),
+(6, 34, 5),
+(7, 34, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `senha` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
+(1, 'Linko', 'peterclayder@gmail.com', '123456');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categoria-pagina`
+--
+ALTER TABLE `categoria-pagina`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categoria-produto`
+--
+ALTER TABLE `categoria-produto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
+
+--
+-- Indexes for table `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `imagem`
+--
+ALTER TABLE `imagem`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mensagem`
+--
+ALTER TABLE `mensagem`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pagina`
+--
+ALTER TABLE `pagina`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pagina-categoria`
+--
+ALTER TABLE `pagina-categoria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `produto-categoria`
+--
+ALTER TABLE `produto-categoria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categoria-pagina`
+--
+ALTER TABLE `categoria-pagina`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `categoria-produto`
+--
+ALTER TABLE `categoria-produto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `empresa`
+--
+ALTER TABLE `empresa`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `imagem`
+--
+ALTER TABLE `imagem`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `mensagem`
+--
+ALTER TABLE `mensagem`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pagina`
+--
+ALTER TABLE `pagina`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pagina-categoria`
+--
+ALTER TABLE `pagina-categoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+--
+-- AUTO_INCREMENT for table `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `produto-categoria`
+--
+ALTER TABLE `produto-categoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
